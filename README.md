@@ -94,7 +94,7 @@ exit
 ```
 python3 run.py
 ```
-# 运行run.py之后会进行微博模拟登录获取cookies,之后再分别进入ProxyPool-master启动代理池和weibo项目启动爬虫脚本
+## 运行run.py之后会进行微博模拟登录获取cookies,之后再分别进入ProxyPool-master启动代理池和weibo项目启动爬虫脚本
 
 ## 运行效果
 
