@@ -1,6 +1,6 @@
 # CookiesPool
 
-可扩展的Cookies池，目前对接了新浪微博，[m.weibo.cn](https://m.weibo.cn)，可自行扩展其他站点
+Cookies池，目前对接了新浪微博，[m.weibo.cn](https://m.weibo.cn)
 
 
 ## 安装
@@ -63,12 +63,6 @@ VALID_PROCESS = True
 API_PROCESS = True
 ```
 
-
-## 账号购买
-
-账号可在淘宝购买
-
-
 ## 导入账号
 
 ```
@@ -100,6 +94,7 @@ exit
 ```
 python3 run.py
 ```
+# 运行run.py之后会进行微博模拟登录获取cookies,之后再分别进入ProxyPool-master启动代理池和weibo项目启动爬虫脚本
 
 ## 运行效果
 
@@ -123,9 +118,7 @@ Cookies有效 14740618009
 正在测试Cookies 用户名 14747222472
 Cookies有效 14747222472
 Cookies检测完成
-验证码位置 420 580 384 544
-成功匹配
-拖动顺序 [1, 4, 2, 3]
+
 成功获取到Cookies {'SUHB': '08J77UIj4w5n_T', 'SCF': 'AimcUCUVvHjswSBmTswKh0g4kNj4K7_U9k57YzxbqFt4SFBhXq3Lx4YSNO9VuBV841BMHFIaH4ipnfqZnK7W6Qs.', 'SSOLoginState': '1501439488', '_T_WM': '99b7d656220aeb9207b5db97743adc02', 'M_WEIBOCN_PARAMS': 'uicode%3D20000174', 'SUB': '_2A250elZQDeRhGeBM6VAR8ifEzTuIHXVXhXoYrDV6PUJbkdBeLXTxkW17ZoYhhJ92N_RGCjmHpfv9TB8OJQ..'}
 成功保存Cookies
 ```
