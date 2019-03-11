@@ -10,6 +10,7 @@ Cookies池，目前对接了新浪微博，[m.weibo.cn](https://m.weibo.cn)
 进入ProxyPool-master打开代理池并获取随机代理,运行命令:
 
 ```
+cd ProxyPool-master
 python3 run.py
 ```
 
@@ -56,14 +57,13 @@ pznfst800410@game.weibo.com----xoru05279
 exit
 ```
 
-先导入一部分账号之后再运行，运行命令：
+先导入一部分账号之后再运行命令：
 
 ```
 python3 run.py
 ```
 
 ## 运行之后会先进行微博模拟登录获取cookies,再进入weibo项目启动爬虫脚本
-
 
 ```
 Cookies检测进程开始运行
