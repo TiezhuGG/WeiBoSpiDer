@@ -3,65 +3,35 @@
 Cookies池，目前对接了新浪微博，[m.weibo.cn](https://m.weibo.cn)
 
 
-## 安装
+## 运行
+
+### ProxyPool-master 
+
+进入ProxyPool-master打开代理池并获取随机代理,运行命令:
 
 ```
-pip3 install -r requirements.txt
+python3 run.py
 ```
 
-## 基础配置 
+## 获取随机代理
 
-### 接口基本配置
+利用requests获取方法如下
 
 ```python
-# Redis数据库地址
-REDIS_HOST = 'localhost'
+import requests
 
-# Redis端口
-REDIS_PORT = 6379
+PROXY_POOL_URL = 'http://localhost:5555/random'
 
-# Redis密码，如无填None
-REDIS_PASSWORD = 'foobared'
-
-# 产生器使用的浏览器
-BROWSER_TYPE = 'Chrome'
-
-# 产生器类，如扩展其他站点，请在此配置
-GENERATOR_MAP = {
-    'weibo': 'WeiboCookiesGenerator'
-}
-
-# 测试类，如扩展其他站点，请在此配置
-TESTER_MAP = {
-    'weibo': 'WeiboValidTester'
-}
-
-# 检测器检测接口
-TEST_URL_MAP = {
-    'weibo': 'https://m.weibo.cn/api/container/getIndex?uid=1804544030&type=uid&page=1&containerid=1076031804544030'
-}
-
-# 产生器和验证器循环周期
-CYCLE = 120
-
-# API地址和端口
-API_HOST = '0.0.0.0'
-API_PORT = 5000
-
+def get_proxy():
+    try:
+        response = requests.get(PROXY_POOL_URL)
+        if response.status_code == 200:
+            return response.text
+    except ConnectionError:
+        return None
 ```
 
-### 进程开关
-
-在config.py修改
-
-```python
-# 产生器开关，模拟登录添加Cookies
-GENERATOR_PROCESS = True
-# 验证器开关，循环检测数据库中Cookies是否可用，不可用删除
-VALID_PROCESS = True
-# API接口服务
-API_PROCESS = True
-```
+# 启动爬虫
 
 ## 导入账号
 
@@ -71,54 +41,43 @@ python3 importer.py
 
 ```
 请输入账号密码组, 输入exit退出读入
-18459748505----astvar3647
-14760253606----gmidy8470
-14760253607----uoyuic8427
-18459749258----rktfye8937
-账号 18459748505 密码 astvar3647
+wbtnmt279641@game.weibo.com----tkwd64604
+anqolj010981@game.weibo.com----ifrc77555
+pcgxus947873@game.weibo.com----heut19420
+awiaeg229174@game.weibo.com----ijnd32834
+pznfst800410@game.weibo.com----xoru05279
+账号 wbtnmt279641@game.weibo.com 密码 tkwd64604
 录入成功
-账号 14760253606 密码 gmidy8470
+账号 anqolj010981@game.weibo.com 密码 ifrc77555
 录入成功
-账号 14760253607 密码 uoyuic8427
+账号 pcgxus947873@game.weibo.com 密码 heut19420
 录入成功
-账号 18459749258 密码 rktfye8937
-录入成功
+......
 exit
 ```
 
-
-## 运行
-
-请先导入一部分账号之后再运行，运行命令：
+先导入一部分账号之后再运行，运行命令：
 
 ```
 python3 run.py
 ```
-## 运行run.py之后会进行微博模拟登录获取cookies,之后再分别进入ProxyPool-master启动代理池和weibo项目启动爬虫脚本
 
-## 运行效果
-
-三个进程全部开启：
+## 运行之后会先进行微博模拟登录获取cookies,再进入weibo项目启动爬虫脚本
 
 
 ```
-API接口开始运行
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-Cookies生成进程开始运行
 Cookies检测进程开始运行
-正在生成Cookies 账号 14747223314 密码 asdf1129
-正在测试Cookies 用户名 14747219309
-Cookies有效 14747219309
-正在测试Cookies 用户名 14740626332
-Cookies有效 14740626332
-正在测试Cookies 用户名 14740691419
-Cookies有效 14740691419
-正在测试Cookies 用户名 14740618009
-Cookies有效 14740618009
-正在测试Cookies 用户名 14747222472
-Cookies有效 14747222472
+API接口开始运行
+Cookies生成进程开始运行
+正在测试Cookies 用户名 wbtnmt279641@game.weibo.com
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+Cookies有效 wbtnmt279641@game.weibo.com
 Cookies检测完成
-
-成功获取到Cookies {'SUHB': '08J77UIj4w5n_T', 'SCF': 'AimcUCUVvHjswSBmTswKh0g4kNj4K7_U9k57YzxbqFt4SFBhXq3Lx4YSNO9VuBV841BMHFIaH4ipnfqZnK7W6Qs.', 'SSOLoginState': '1501439488', '_T_WM': '99b7d656220aeb9207b5db97743adc02', 'M_WEIBOCN_PARAMS': 'uicode%3D20000174', 'SUB': '_2A250elZQDeRhGeBM6VAR8ifEzTuIHXVXhXoYrDV6PUJbkdBeLXTxkW17ZoYhhJ92N_RGCjmHpfv9TB8OJQ..'}
+正在生成Cookies 账号 anqolj010981@game.weibo.com 密码 ifrc77555
+Cookies生成进程开始运行
+正在生成Cookies 账号 anqolj010981@game.weibo.com 密码 ifrc77555
+成功获取到Cookies {'M_WEIBOCN_PARAMS': 'uicode%3D20000174', 'SUB': '_2A25xgc7HDeRhGeBI41YT9CbNyzuIHXVSjdKPrDV6PUJbktAKLWX2kW1NRnqTbY2d2uotSFTU1kQbD9B7yW_xct-U', 'MLOGIN': '1', 'SUBP': '0033WrSXqPxfM725Ws9jqgMF55529P9D9WWATo1Wllqm.Dxd94V9blQ05JpX5KzhUgL.Foqc1hBEShnpehM2dJLoIp7LxKML1KBLBKnLxKqL1hnLBoMcSonXeoBReK5N', 'SUHB': '06ZVs1zZ5N2PhY', 'SSOLoginState': '1552268951', 'WEIBOCN_FROM': '1110006030', '_T_WM': 'a7709afbe589f30ea3ae289d92c308ad', 'XSRF-TOKEN': 'a1148a'}
 成功保存Cookies
+......
+
 ```
