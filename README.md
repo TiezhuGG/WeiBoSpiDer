@@ -68,11 +68,11 @@ python3 run.py
 ```
 Cookies检测进程开始运行
 API接口开始运行
-Cookies生成进程开始运行
 正在测试Cookies 用户名 wbtnmt279641@game.weibo.com
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 Cookies有效 wbtnmt279641@game.weibo.com
 Cookies检测完成
+Cookies生成进程开始运行
 正在生成Cookies 账号 anqolj010981@game.weibo.com 密码 ifrc77555
 Cookies生成进程开始运行
 正在生成Cookies 账号 anqolj010981@game.weibo.com 密码 ifrc77555
