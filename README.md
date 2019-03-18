@@ -32,8 +32,6 @@ def get_proxy():
         return None
 ```
 
-# 启动爬虫
-
 ## 导入账号
 
 ```
